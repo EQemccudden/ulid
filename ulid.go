@@ -19,6 +19,7 @@ import (
 	"database/sql/driver"
 	"encoding/binary"
 	"errors"
+	"fmt"
 	"io"
 	"math"
 	"math/bits"
@@ -143,6 +144,8 @@ func ParseStrict(ulid string) (id ULID, err error) {
 
 func parse(v []byte, strict bool, id *ULID) error {
 	// Check if a base32 encoded ULID is the right length.
+	fmt.Println(len(v))
+	fmt.Println(v)
 	if len(v) != EncodedSize {
 		return ErrDataSize
 	}
