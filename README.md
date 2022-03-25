@@ -4,7 +4,7 @@
 ![Build Status](https://github.com/oklog/ulid/actions/workflows/test.yml/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/oklog/ulid?cache=0)](https://goreportcard.com/report/oklog/ulid)
 [![Coverage Status](https://coveralls.io/repos/github/oklog/ulid/badge.svg?branch=master&cache=0)](https://coveralls.io/github/oklog/ulid?branch=master)
-[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/oklog/ulid/v2)
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/pragmaticivan/ulid/v2)
 [![Apache 2 licensed](https://img.shields.io/badge/license-Apache2-blue.svg)](https://raw.githubusercontent.com/oklog/ulid/master/LICENSE)
 
 A Go port of [ulid/javascript](https://github.com/ulid/javascript) with binary format implemented.
@@ -34,7 +34,7 @@ A ULID however:
 This package requires Go modules.
 
 ```shell
-go get github.com/oklog/ulid/v2
+go get github.com/pragmaticivan/ulid/v2
 ```
 
 ## Usage
@@ -61,7 +61,7 @@ These commands should install the latest version of the tool at `bin/ulid`:
 
 ```shell
 cd $(mktemp -d)
-env GOPATH=$(pwd) GO111MODULE=on go get -v github.com/oklog/ulid/v2/cmd/ulid
+env GOPATH=$(pwd) GO111MODULE=on go get -v github.com/pragmaticivan/ulid/v2/cmd/ulid
 ```
 
 Usage:

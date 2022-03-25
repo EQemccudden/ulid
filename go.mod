@@ -1,4 +1,4 @@
-module github.com/oklog/ulid/v2
+module github.com/pragmaticivan/ulid/v2
 
 go 1.15
 
