@@ -19,7 +19,6 @@ import (
 	"database/sql/driver"
 	"encoding/binary"
 	"errors"
-	"fmt"
 	"io"
 	"math"
 	"math/bits"
@@ -144,8 +143,6 @@ func ParseStrict(ulid string) (id ULID, err error) {
 
 func parse(v []byte, strict bool, id *ULID) error {
 	// Check if a base32 encoded ULID is the right length.
-	fmt.Println(len(v))
-	fmt.Println(v)
 	if len(v) != EncodedSize {
 		return ErrDataSize
 	}
@@ -273,9 +270,9 @@ func (id ULID) MarshalBinaryTo(dst []byte) error {
 // copying the passed data and converting it to an ULID. ErrDataSize is
 // returned if the data length is different from ULID length.
 func (id *ULID) UnmarshalBinary(data []byte) error {
-	if len(data) != len(*id) {
-		return ErrDataSize
-	}
+	// if len(data) != len(*id) {
+	// 	return ErrDataSize
+	// }
 
 	copy((*id)[:], data)
 	return nil
@@ -505,7 +502,7 @@ func (id *ULID) Scan(src interface{}) error {
 //    db.Exec("...", invalidZeroValuer(id))
 //
 func (id ULID) Value() (driver.Value, error) {
-	return id.MarshalText()
+	return id.MarshalBinary()
 }
 
 // Monotonic returns an entropy source that is guaranteed to yield
