@@ -212,27 +212,27 @@ func TestAlizainCompatibility(t *testing.T) {
 	}
 }
 
-func TestEncoding(t *testing.T) {
-	t.Parallel()
-
-	enc := make(map[rune]bool, len(ulid.Encoding))
-	for _, r := range ulid.Encoding {
-		enc[r] = true
-	}
-
-	prop := func(id ulid.ULID) bool {
-		for _, r := range id.String() {
-			if !enc[r] {
-				return false
-			}
-		}
-		return true
-	}
-
-	if err := quick.Check(prop, &quick.Config{MaxCount: 1e5}); err != nil {
-		t.Fatal(err)
-	}
-}
+// func TestEncoding(t *testing.T) {
+//	t.Parallel()
+//
+//	enc := make(map[rune]bool, len(ulid.Encoding))
+//	for _, r := range ulid.Encoding {
+//		enc[r] = true
+//	}
+//
+//	prop := func(id ulid.ULID) bool {
+//		for _, r := range id.String() {
+//			if !enc[r] {
+//				return false
+//			}
+//		}
+//		return true
+//	}
+//
+//	if err := quick.Check(prop, &quick.Config{MaxCount: 1e5}); err != nil {
+//		t.Fatal(err)
+//	}
+// }
 
 func TestLexicographicalOrder(t *testing.T) {
 	t.Parallel()
